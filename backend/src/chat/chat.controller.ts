@@ -9,7 +9,7 @@ export class ChatController {
 
   @Post()
   async chat(@Body() body: ChatDto) {
-    return this.chatService.chat(body.message);
+    return this.chatService.chat(body.messages);
   }
 
   @Post('stream')
@@ -18,6 +18,6 @@ export class ChatController {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.setHeader('Cache-Control', 'no-cache, no-transform');
     res.setHeader('Connection', 'keep-alive');
-    await this.chatService.stream(body.message, res);
+    await this.chatService.stream(body.messages, res);
   }
 }
