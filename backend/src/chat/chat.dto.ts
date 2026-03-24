@@ -25,3 +25,9 @@ export class ChatDto {
   @Type(() => ChatMessageDto)
   messages: ChatMessageDto[];
 }
+
+export class SessionChatDto {
+  @IsString()
+  @IsNotEmpty()
+  message: string;
+}
